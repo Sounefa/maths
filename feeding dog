@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feed the Dog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fef6e4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .scene {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .dog {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 60px;
+    }
+
+    .bowl {
+      position: absolute;
+      bottom: 10px;
+      left: 20px;
+      font-size: 40px;
+    }
+
+    .food {
+      position: absolute;
+      bottom: 40px;
+      left: 30px;
+      font-size: 30px;
+      opacity: 0;
+      transition: all 1s ease;
+    }
+
+    .food.move {
+      transform: translateX(200px);
+      opacity: 1;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #f582ae;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffb3c6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene">
+    <div class="dog">🐶</div>
+    <div class="bowl">🥣</div>
+    <div class="food" id="food">🍖</div>
+  </div>
+
+  <button onclick="feedDog()">Feed the Dog</button>
+
+  <script>
+    function feedDog() {
+      const food = document.getElementById('food');
+      food.classList.add('move');
+
+      // After the animation, hide the food again
+      setTimeout(() => {
+        food.classList.remove('move');
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
